@@ -65,3 +65,6 @@ Update EmployeePayroll  set Deduction=2000 where Gender='M'
 Update EmployeePayroll  set Net_Pay=(Basic_Pay - Deduction)
 Update EmployeePayroll  set Taxable_Pay=0,Income_Tax=0
 select * from EmployeePayroll 
+
+-- UC10 Adding duplicate names
+insert into  EmployeePayroll values('Rinku',20000,'2023-01-12','F','1234567891','India',null,'EXTC',10000,0,0,null)
