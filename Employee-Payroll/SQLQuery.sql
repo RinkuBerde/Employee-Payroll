@@ -50,3 +50,18 @@ Update EmployeePayroll set EmployeePhone='9876543215',Department='CS' where name
 Update EmployeePayroll set EmployeePhone='5678943214',Department='CS' where name='Arya'
 Update EmployeePayroll set EmployeePhone='1643897651',Department='Mech' where name='Gitesh'
 select * from EmployeePayroll
+
+--UC9 Rename Salary to Basic Pay and Add Deduction,Taxable pay, Income Pay , Netpay
+Sp_rename 'EmployeePayroll.Department', 'Basic_Pay'
+alter table EmployeePayroll add department varchar(50) not null default 'IT' 
+Update EmployeePayroll set Basic_pay=null  where name in ('Rinku','Swayam','Arya')
+Alter table EmployeePayroll add 
+Deduction money,
+Taxable_Pay money,
+Income_Tax money,
+Net_Pay money
+Update EmployeePayroll  set Deduction=1000 where Gender='F'
+Update EmployeePayroll  set Deduction=2000 where Gender='M'
+Update EmployeePayroll  set Net_Pay=(Basic_Pay - Deduction)
+Update EmployeePayroll  set Taxable_Pay=0,Income_Tax=0
+select * from EmployeePayroll 
