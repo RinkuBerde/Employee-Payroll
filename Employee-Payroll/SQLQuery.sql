@@ -39,3 +39,14 @@ select gender, avg(salary) from EmployeePayroll  group by gender
 select gender, count(salary) from EmployeePayroll  group by gender;
 select max(salary) "Highest_Salary" from EmployeePayroll
 select min(salary) "Lowest_Salary" from EmployeePayroll
+
+--UC8 Add column department,PhoneNumber and Address
+alter table EmployeePayroll add
+EmployeePhone varchar(15), 
+Address varchar(200) not null default 'India',
+Department varchar(200)  
+Update EmployeePayroll set EmployeePhone='1234567891',Department='IT' where name='Rinku'
+Update EmployeePayroll set EmployeePhone='9876543215',Department='CS' where name='Swayam'
+Update EmployeePayroll set EmployeePhone='5678943214',Department='CS' where name='Arya'
+Update EmployeePayroll set EmployeePhone='1643897651',Department='Mech' where name='Gitesh'
+select * from EmployeePayroll
