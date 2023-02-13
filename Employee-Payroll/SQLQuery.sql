@@ -19,3 +19,8 @@ Insert into EmployeePayroll values
 
 --UC-4 Retrieve All data--
 select * from EmployeePayroll
+
+-- UC5 Retrieve salary for particular employee 
+select salary from EmployeePayroll where name='Rinku'
+-- Retrieve salary for particular employee who join in particular date using getdate()
+select salary from  EmployeePayroll where start_Date between '2020-01-12' and getdate()
