@@ -30,3 +30,12 @@ alter table EmployeePayroll add gender char(1)
 -- update row
 update EmployeePayroll set gender='F' where name='Rinku' or name='Arya'
 update EmployeePayroll set gender ='M' where id in (2,4)
+
+--UC7 use aggregate functions
+select gender, sum(salary) from EmployeePayroll  where gender = 'M' group by gender
+select gender, avg(salary) from EmployeePayroll where gender = 'F' group by gender
+select gender, sum(salary) from EmployeePayroll  group by gender
+select gender, avg(salary) from EmployeePayroll  group by gender
+select gender, count(salary) from EmployeePayroll  group by gender;
+select max(salary) "Highest_Salary" from EmployeePayroll
+select min(salary) "Lowest_Salary" from EmployeePayroll
